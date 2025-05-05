@@ -1,8 +1,10 @@
-![unitasker_logo](https://github.com/user-attachments/assets/86b48ac6-c124-4ecf-8c36-16fd21d6dd3e)
+<div align="center">
+  <img src="assets/unitasker_logo.png" alt="Example Image" width="300">
+</div>
 # Unitasker
 A collection of Python functions or scripts for unit conversion
 
-## Pressure.Py
+## generalPurpose.py
 
 #### `length_conversion(value, from_unit, to_unit)`
 Converts a length value between units such as meters, kilometers, inches, and feet.
