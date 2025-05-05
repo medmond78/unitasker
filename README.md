@@ -3,7 +3,7 @@
 </div>
 
 # Unitasker
-A collection of Python functions or scripts for unit conversion
+A collection of Python functions or scripts for unit conversion. They are bespoke and added as created, so they are not necessarily consistent in naming or formatting. Hopefully they are clear to use. 
 
 ## generalPurpose.py
 
@@ -66,3 +66,5 @@ diameter_mm, thickness_mm = imperial_fraction_to_mm(diameter, thickness)
 print(f"Diameter: {diameter_mm:.2f} mm")
 print(f"Thickness: {thickness_mm:.2f} mm")
 ```
+## pa_to_inHg.py
+A function to convert Pascals to inches of Mercury. I don't use this often but is handy.
