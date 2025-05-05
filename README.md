@@ -1,3 +1,4 @@
+![unitasker_logo](https://github.com/user-attachments/assets/86b48ac6-c124-4ecf-8c36-16fd21d6dd3e)
 # Unitasker
 A collection of Python functions or scripts for unit conversion
 
