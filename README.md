@@ -18,7 +18,7 @@ Converts a temperature value between Celsius, Fahrenheit, and Kelvin.
 #### `volume_conversion(value, from_unit, to_unit)`
 Converts a volume value between units such as liters, cubic meters, cubic inches, and cubic feet.
 
-## Usage
+### Usage
 
 To use these functions, import the script and call the desired function with the appropriate parameters.
 
@@ -51,7 +51,7 @@ Converts diameter and thickness from imperial fractions to millimeters.
 #### Returns:
 - `tuple`: Diameter and thickness in millimeters.
 
-## Usage
+### Usage
 
 ```python
 # Example usage
