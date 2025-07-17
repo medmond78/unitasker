@@ -1,77 +1,96 @@
 <div align="center">
-  <img src="assets/unitasker_logo.png" alt="Example Image" width="300">
+  <img src="assets/unitasker_logo.png" alt="Unitasker Logo" width="300">
 </div>
 
 # Unitasker
-A collection of Python functions or scripts for unit conversion. They are bespoke and added as created, so they are not necessarily consistent in naming or formatting. Hopefully they are clear to use. 
 
-## generalPurpose.py
+A collection of Python functions for unit conversion, written to be clear, concise, and consistent. Additions are incremental: naming and formatting now adhere to current best practices. Unit tests are recommended for reliability and further development.
 
-#### `length_conversion(value, from_unit, to_unit)`
-Converts a length value between units such as meters, kilometers, inches, and feet.
+---
 
-#### `mass_conversion(value, from_unit, to_unit)`
-Converts a mass value between units such as kilograms, grams, pounds, and ounces.
+## Contents
 
-#### `pressure_conversion(value, from_unit, to_unit)`
-Converts a pressure value between units such as pascals, bar, psi, and atm.
+- <a href="#function-reference" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">Function Reference</a>
+- <a href="#example-usage" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">Example Usage</a>
+- <a href="#testing" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">Testing</a>
+- <a href="#notes" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">Notes</a>
 
-#### `temperature_conversion(value, from_unit, to_unit)`
-Converts a temperature value between Celsius, Fahrenheit, and Kelvin.
+---
 
-#### `volume_conversion(value, from_unit, to_unit)`
-Converts a volume value between units such as liters, cubic meters, cubic inches, and cubic feet.
+## Function Reference
 
-### Example Usage
+### `pressure_conversion(value: float, from_unit: str, to_unit: str) -> float`
 
-To use these functions, import the script and call the desired function with the appropriate parameters.
+Converts a pressure value between units: pascal, kilopascal, megapascal, bar, psi, atm.
 
-```python
-# Example usage
-length_in_meters = length_conversion(100, 'meters', 'feet')
-mass_in_pounds = mass_conversion(5, 'kilograms', 'pounds')
-pressure_in_psi = pressure_conversion(101325, 'pascals', 'psi')
-temperature_in_fahrenheit = temperature_conversion(0, 'celsius', 'fahrenheit')
-volume_in_cubic_inches = volume_conversion(2, 'liters', 'cubic_inches')
+**Arguments:**
+- `value` (`float`): The pressure value to convert.
+- `from_unit` (`str`): The unit of the input value.
+- `to_unit` (`str`): The desired output unit.
 
-print(f"Length: {length_in_meters} feet")
-print(f"Mass: {mass_in_pounds} pounds")
-print(f"Pressure: {pressure_in_psi} psi")
-print(f"Temperature: {temperature_in_fahrenheit} Fahrenheit")
-print(f"Volume: {volume_in_cubic_inches} cubic inches")
-```
+**Returns:**  
+- `float`: Pressure in the desired unit.
 
-## Imperial Fraction to Millimeters Conversion
+---
 
-This Python function converts diameter and thickness measurements from imperial fractions to millimeters.
+### `pascal_to_inches_of_mercury(pascals: float) -> float`
 
-#### `imperial_fraction_to_mm(diameter_fraction, thickness_fraction)`
+Converts Pascals to inches of mercury.
+
+**Arguments:**  
+- `pascals` (`float`): Pressure in Pascals.
+
+**Returns:**  
+- `float`: Pressure in inches of mercury.
+
+---
+
+### `convert_fraction(fraction: str) -> float`
+
+Converts an imperial fraction (e.g., `"1 1/2"`, `"3/4"`) to a float (in inches).
+
+**Arguments:**
+- `fraction` (`str`): The fraction to convert (`"1 1/2"`, `"3/4"`, or `"2"`).
+
+**Returns:**
+- `float`: Value in inches.
+
+---
+
+### `imperial_fraction_to_mm(diameter_fraction: str, thickness_fraction: str) -> tuple[float, float]`
+
 Converts diameter and thickness from imperial fractions to millimeters.
 
-#### Args:
-- `diameter_fraction (str)`: Diameter as an imperial fraction (e.g., "1 1/2").
-- `thickness_fraction (str)`: Thickness as an imperial fraction (e.g., "3/4").
+**Arguments:**
+- `diameter_fraction` (`str`): Diameter as an imperial fraction.
+- `thickness_fraction` (`str`): Thickness as an imperial fraction.
 
-#### Returns:
-- `tuple`: Diameter and thickness in millimeters.
+**Returns:**
+- `tuple (float, float)`: `(diameter_mm, thickness_mm)`
 
-### Example Usage
+---
+
+## Example Usage
 
 ```python
-# Example usage
-diameter = "1 3/8"  # Example diameter in imperial fraction
-thickness = "3/8"   # Example thickness in imperial fraction
-diameter_mm, thickness_mm = imperial_fraction_to_mm(diameter, thickness)
+from unitasker import (
+    pressure_conversion,
+    pascal_to_inches_of_mercury,
+    convert_fraction,
+    imperial_fraction_to_mm,
+)
 
+# Pressure conversion
+pressure_psi = pressure_conversion(101325, 'pascal', 'psi')
+print(f"Pressure: {pressure_psi:.2f} psi")
+
+# Pascals to inches of mercury
+pressure_inHg = pascal_to_inches_of_mercury(101325)
+print(f"Pressure: {pressure_inHg:.2f} inHg")
+
+# Imperial fraction to mm
+diameter = "1 3/8"
+thickness = "3/8"
+diameter_mm, thickness_mm = imperial_fraction_to_mm(diameter, thickness)
 print(f"Diameter: {diameter_mm:.2f} mm")
 print(f"Thickness: {thickness_mm:.2f} mm")
-```
-## pa_to_inHg.py
-A function to convert Pascals to inches of Mercury. I don't use this often but is handy.
-
-### Usage
-
-```python
-
-pressureHg = pascal_to_inches_of_mercury(101325)
-```
